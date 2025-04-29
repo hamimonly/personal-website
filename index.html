@@ -175,6 +175,24 @@
     <p>Adventurer, learner, and a curious soul passionate about technology, education, and running free under the sky.</p>
   </div>
 
+  <!-- SISIPKAN KODE INI DI SINI KODE FIRE -->
+  <div class="love-container" style="margin-top:2rem; text-align:center;">
+  <button id="loveButton" style="background:none; border:none; cursor:pointer; font-size:2rem;">🔥</button>
+  <div id="loveCount" style="margin-top:0.5rem; font-size:1.2rem;">0 Applause</div>
+</div>
+
+<script>
+  let count = localStorage.getItem('fireCount') || 0;
+  document.getElementById('loveCount').textContent = `${count} Applause`;
+
+  document.getElementById('loveButton').addEventListener('click', () => {
+    count++;
+    localStorage.setItem('fireCount', count);
+    document.getElementById('loveCount').textContent = `${count} Applause`;
+  });
+</script>
+
+  
   <footer>
     &copy; 2025 Khamim Maezun
   </footer>
