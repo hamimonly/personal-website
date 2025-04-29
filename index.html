@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khamim Maezun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #0d0d0d;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 1px solid #222;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .hero img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #f1f1f1;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #bbb;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Khamim Maezun</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="achievement.html">Achievement</a></li>
+      <li><a href="hobby.html">Hobby</a></li>
+      <li><a href="work.html">Work</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <img src="profil.jpg" alt="Foto Khamim" />
+    <h2>Hello, I'm Khamim</h2>
+    <p>Adventurer, learner, and a curious soul passionate about technology, education, and running free under the sky.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 Khamim Maezun
+  </footer>
+</body>
+</html>
