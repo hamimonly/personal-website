@@ -77,27 +77,37 @@
     .hero {
       flex: 1;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      text-align: left;
       padding: 4rem 2rem;
       animation: fadeIn 1.2s ease-out;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
 
-    .hero h2 {
+    .hero img {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h2 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
       font-weight: 700;
       color: #f1f1f1;
     }
 
-    .hero p {
-      max-width: 600px;
+    .hero-text p {
       color: #bbb;
       font-size: 1.1rem;
       line-height: 1.7;
-      padding: 0 1rem;
     }
 
     footer {
@@ -119,7 +129,6 @@
       }
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .menu-toggle {
         display: flex;
@@ -141,18 +150,14 @@
       nav ul.active {
         display: flex;
       }
-    }
-    @media (max-width: 768px) {
+
       .hero {
-        flex-direction: column !important;
+        flex-direction: column;
         text-align: center;
       }
-      .hero div {
-        text-align: center !important;
-      }
-      .hero img {
-        margin-bottom: 1.5rem;
-        filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
+
+      .hero-text {
+        text-align: center;
       }
     }
   </style>
@@ -173,15 +178,13 @@
     </ul>
   </nav>
 
-  <div class="hero" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2rem;">
-    <img src="running.png" alt="Running photo" style="max-width: 320px; width: 100%; height: auto; border-radius: 10px;" />
-    <div style="max-width: 600px; text-align: left;">
+  <div class="hero">
+    <img src="running.png" alt="Running photo" />
+    <div class="hero-text">
       <h2>Running</h2>
       <p>Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself. Every mile run strengthens not only the body but also the mind and spirit.</p>
     </div>
   </div>
-
-    
 
   <footer>
     &copy; 2025 Khamim Maezun
