@@ -160,6 +160,17 @@
         text-align: center;
       }
     }
+    #hobby-slider {
+      position: relative;
+      transition: all 0.5s ease;
+    }
+    .hero img {
+      transition: opacity 0.5s ease;
+    }
+    .hero-text h2, .hero-text p {
+      transition: opacity 0.5s ease;
+    }
+
   </style>
 </head>
 <body>
@@ -178,13 +189,17 @@
     </ul>
   </nav>
 
-  <div class="hero">
-    <img src="running.png" alt="Running photo" />
-    <div class="hero-text">
-      <h2>Running</h2>
-      <p>Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself. Every mile run strengthens not only the body but also the mind and spirit.</p>
-    </div>
+  <div class="hero" id="hobby-slider">
+  <img id="hobby-img" src="running.png" alt="Running" />
+  <div class="hero-text">
+    <h2 id="hobby-title">Running</h2>
+    <p id="hobby-desc">
+      Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself.
+    </p>
   </div>
+  <button id="next-hobby" style="position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 2rem; cursor: pointer;">➡️</button>
+</div>
+
 
   <footer>
     &copy; 2025 Khamim Maezun
@@ -198,5 +213,50 @@
       menu.classList.toggle('active');
     });
   </script>
+
+<script>
+  const hobbies = [
+    {
+      title: "Running",
+      desc: "Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself.",
+      img: "running.png"
+    },
+    {
+      title: "Photography",
+      desc: "Capturing moments through the lens allows me to express creativity, see beauty in the ordinary, and freeze time in a frame.",
+      img: "photography.png"
+    },
+    {
+      title: "Reading",
+      desc: "Reading opens doors to new worlds, expands knowledge, and brings peace. It's my way of learning and escaping at the same time.",
+      img: "reading.png"
+    }
+  ];
+
+  let index = 0;
+  const imgEl = document.getElementById("hobby-img");
+  const titleEl = document.getElementById("hobby-title");
+  const descEl = document.getElementById("hobby-desc");
+
+  document.getElementById("next-hobby").addEventListener("click", () => {
+    index = (index + 1) % hobbies.length;
+    imgEl.style.opacity = 0;
+    titleEl.style.opacity = 0;
+    descEl.style.opacity = 0;
+
+    setTimeout(() => {
+      imgEl.src = hobbies[index].img;
+      imgEl.alt = hobbies[index].title;
+      titleEl.textContent = hobbies[index].title;
+      descEl.textContent = hobbies[index].desc;
+
+      imgEl.style.opacity = 1;
+      titleEl.style.opacity = 1;
+      descEl.style.opacity = 1;
+    }, 300);
+  });
+</script>
+
+  
 </body>
 </html>
