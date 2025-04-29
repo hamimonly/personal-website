@@ -147,6 +147,9 @@
         flex-direction: column !important;
         text-align: center;
       }
+      .hero div {
+        text-align: center !important;
+      }
       .hero img {
         margin-bottom: 1.5rem;
         filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
@@ -170,13 +173,14 @@
     </ul>
   </nav>
 
-  <div class="hero" style="flex-direction: row; gap: 2rem; flex-wrap: wrap;">
-    <img src="running.png" alt="Running photo" style="max-widht: 300px; width: 100%; border-radius: 10px;" />
-    <div>
-    <h2>Running</h2>
-    <p>Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself. Every mile run strengthens not only the body but also the mind and spirit.</p>
+  <div class="hero" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2rem;">
+    <img src="running.png" alt="Running photo" style="max-width: 320px; width: 100%; height: auto; border-radius: 10px;" />
+    <div style="max-width: 600px; text-align: left;">
+      <h2>Running</h2>
+      <p>Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself. Every mile run strengthens not only the body but also the mind and spirit.</p>
     </div>
   </div>
+
     
 
   <footer>
