@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work - Khamim Maezun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #0d0d0d;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #222;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #f1f1f1;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .work-card {
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 20px rgba(255,255,255,0.03);
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .work-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .work-card p {
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #0d0d0d;
+        flex-direction: column;
+        width: 200px;
+        border: 1px solid #333;
+        display: none;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Khamim Maezun</h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="menu">
+      <li><a href="/personal-website/">Home</a></li>
+      <li><a href="/personal-website/achievement/">Achievement</a></li>
+      <li><a href="/personal-website/hobby/">Hobby</a></li>
+      <li><a href="/personal-website/work/">Work</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h2>My Work</h2>
+    <div class="work-grid">
+      <div class="work-card">
+        <h3>Frontend Developer – PT Digital Karya</h3>
+        <p>Developed and maintained responsive UI for internal tools using React and Tailwind CSS.</p>
+      </div>
+      <div class="work-card">
+        <h3>Freelance Web Designer</h3>
+        <p>Created personal and portfolio websites for clients using HTML, CSS, and GitHub Pages.</p>
+      </div>
+      <div class="work-card">
+        <h3>Hackathon Finalist – DevFest 2023</h3>
+        <p>Built a productivity web app in 48 hours; won top 5 in user interface category.</p>
+      </div>
+      <div class="work-card">
+        <h3>Open Source Contributor</h3>
+        <p>Contributed bug fixes and translation to several GitHub projects, including documentation sites.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Khamim Maezun
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
