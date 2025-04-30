@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievement - Khamim Maezun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #0d0d0d;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #222;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .mystery-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .mystery-card {
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      padding: 3rem 4rem;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.05);
+      font-size: 2rem;
+      letter-spacing: 0.3em;
+      color: #666;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      z-index: 1;
+      position: relative;
+    }
+
+    .mystery-card:hover {
+      transform: scale(1.03);
+      color: #888;
+    }
+
+    .burst {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, #ffffff33, transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .burst.active {
+      animation: burstAnim 0.6s ease-out forwards;
+    }
+
+    @keyframes burstAnim {
+      0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0.8;
+      }
+      70% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #0d0d0d;
+        flex-direction: column;
+        width: 200px;
+        border: 1px solid #333;
+        display: none;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .mystery-card {
+        padding: 2rem;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Khamim Maezun</h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="menu">
+      <li><a href="/personal-website/">Home</a></li>
+      <li><a href="/personal-website/achievement/">Achievement</a></li>
+      <li><a href="/personal-website/hobby/">Hobby</a></li>
+      <li><a href="/personal-website/work/">Work</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="mystery-wrapper">
+      <div class="burst" id="burst"></div>
+      <div class="mystery-card" id="mysteryCard">
+        ......
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Khamim Maezun
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    const card = document.getElementById('mysteryCard');
+    const burst = document.getElementById('burst');
+
+    card.addEventListener('click', () => {
+      burst.classList.remove('active');
+      void burst.offsetWidth; // trigger reflow
+      burst.classList.add('active');
+    });
+  </script>
+</body>
+</html>
