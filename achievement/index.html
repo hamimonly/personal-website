@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Achievement - Khamim Maezun</title>
+  <title>Khamim Maezun</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -11,6 +11,10 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -72,70 +76,14 @@
     .hero {
       flex: 1;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 4rem 2rem;
+      justify-content: center;
       text-align: center;
-    }
-
-    .mystery-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    .mystery-card {
-      background-color: #1a1a1a;
-      border: 1px solid #333;
-      padding: 3rem 4rem;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(255,255,255,0.05);
-      font-size: 2rem;
-      letter-spacing: 0.15em;
-      color: #666;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      z-index: 1;
-      position: relative;
-      min-width: 220px;
-      min-height: 60px;
-    }
-
-    .mystery-card:hover {
-      transform: scale(1.03);
-      color: #888;
-    }
-
-    .burst {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle, #ffffff33, transparent);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .burst.active {
-      animation: burstAnim 0.6s ease-out forwards;
-    }
-
-    @keyframes burstAnim {
-      0% {
-        transform: translate(-50%, -50%) scale(0.3);
-        opacity: 0.8;
-      }
-      70% {
-        transform: translate(-50%, -50%) scale(2);
-        opacity: 0.4;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(3);
-        opacity: 0;
-      }
+      padding: 4rem 2rem;
+      animation: fadeIn 1.2s ease-out;
+      gap: 2rem;
+      min-height: 70vh;
     }
 
     footer {
@@ -144,6 +92,17 @@
       color: #666;
       font-size: 0.9rem;
       border-top: 1px solid #222;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 768px) {
@@ -167,11 +126,6 @@
       nav ul.active {
         display: flex;
       }
-
-      .mystery-card {
-        padding: 2rem;
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
@@ -192,12 +146,7 @@
   </nav>
 
   <div class="hero">
-    <div class="mystery-wrapper">
-      <div class="burst" id="burst"></div>
-      <div class="mystery-card" id="mysteryCard">
-        <span id="mysteryText">......</span>
-      </div>
-    </div>
+    <!-- Konten dikosongkan -->
   </div>
 
   <footer>
@@ -209,33 +158,6 @@
     const menu = document.getElementById('menu');
     menuToggle.addEventListener('click', () => {
       menu.classList.toggle('active');
-    });
-
-    const card = document.getElementById('mysteryCard');
-    const burst = document.getElementById('burst');
-    const textEl = document.getElementById('mysteryText');
-
-    let typed = false;
-
-    card.addEventListener('click', () => {
-      burst.classList.remove('active');
-      void burst.offsetWidth;
-      burst.classList.add('active');
-
-      if (!typed) {
-        textEl.textContent = '';
-        const message = 'on going';
-        let i = 0;
-        const interval = setInterval(() => {
-          if (i < message.length) {
-            textEl.textContent += message[i];
-            i++;
-          } else {
-            clearInterval(interval);
-            typed = true;
-          }
-        }, 100);
-      }
     });
   </script>
 </body>
