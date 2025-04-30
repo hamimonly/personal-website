@@ -90,12 +90,14 @@
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(255,255,255,0.05);
       font-size: 2rem;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.15em;
       color: #666;
       transition: transform 0.3s ease;
       cursor: pointer;
       z-index: 1;
       position: relative;
+      min-width: 220px;
+      min-height: 60px;
     }
 
     .mystery-card:hover {
@@ -193,7 +195,7 @@
     <div class="mystery-wrapper">
       <div class="burst" id="burst"></div>
       <div class="mystery-card" id="mysteryCard">
-        ......
+        <span id="mysteryText">......</span>
       </div>
     </div>
   </div>
@@ -211,11 +213,29 @@
 
     const card = document.getElementById('mysteryCard');
     const burst = document.getElementById('burst');
+    const textEl = document.getElementById('mysteryText');
+
+    let typed = false;
 
     card.addEventListener('click', () => {
       burst.classList.remove('active');
-      void burst.offsetWidth; // trigger reflow
+      void burst.offsetWidth;
       burst.classList.add('active');
+
+      if (!typed) {
+        textEl.textContent = '';
+        const message = 'on going';
+        let i = 0;
+        const interval = setInterval(() => {
+          if (i < message.length) {
+            textEl.textContent += message[i];
+            i++;
+          } else {
+            clearInterval(interval);
+            typed = true;
+          }
+        }, 100);
+      }
     });
   </script>
 </body>
