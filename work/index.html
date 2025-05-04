@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Work - Khamim Maezun</title>
+  <title>To-Do List - Khamim Maezun</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
 
     body {
       background-color: #0d0d0d;
       color: #fff;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
 
     nav {
-      position: sticky;
-      top: 0;
       background-color: #0d0d0d;
       padding: 1rem 2rem;
       display: flex;
@@ -34,7 +32,6 @@
 
     nav h1 {
       font-size: 1.5rem;
-      font-weight: bold;
     }
 
     nav ul {
@@ -44,8 +41,8 @@
     }
 
     nav ul li a {
-      text-decoration: none;
       color: #aaa;
+      text-decoration: none;
       transition: color 0.3s;
     }
 
@@ -53,46 +50,80 @@
       color: #fff;
     }
 
-    .portfolio-section {
-      padding: 4rem 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+    .container {
+      flex: 1;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
     }
 
-    .portfolio-card {
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .todo-input {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .todo-input input {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .todo-input button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .todo-input button:hover {
+      background: #555;
+    }
+
+    ul.todo-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.todo-list li {
       background: #1a1a1a;
-      border-radius: 16px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       border: 1px solid #333;
     }
 
-    .portfolio-card:hover {
-      transform: translateY(-5px);
+    ul.todo-list li.done {
+      text-decoration: line-through;
+      opacity: 0.6;
     }
 
-    .portfolio-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .actions button {
+      background: transparent;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-left: 1rem;
     }
 
-    .portfolio-content {
-      padding: 1.5rem;
-    }
-
-    .portfolio-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: #f1f1f1;
-    }
-
-    .portfolio-desc {
-      font-size: 0.95rem;
-      color: #bbb;
-      line-height: 1.5;
+    .actions button:hover {
+      color: #fff;
     }
 
     footer {
@@ -101,82 +132,64 @@
       color: #666;
       border-top: 1px solid #222;
     }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        background: #0d0d0d;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 1rem;
-        border: 1px solid #333;
-        display: none;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-      }
-
-      .menu-toggle span {
-        background: #fff;
-        height: 3px;
-        margin: 4px 0;
-        width: 25px;
-        border-radius: 3px;
-      }
-    }
   </style>
 </head>
 <body>
+
   <nav>
     <h1>Khamim Maezun</h1>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul id="nav-menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="achievement.html">Achievement</a></li>
-      <li><a href="hobby.html">Hobby</a></li>
-      <li><a href="work.html">Work</a></li>
+    <ul>
+      <li><a href="/personal-website/">Home</a></li>
+      <li><a href="/personal-website/achievement">Achievement</a></li>
+      <li><a href="/personal-website/hobby">Hobby</a></li>
+      <li><a href="/personal-website/work">Work</a></li>
     </ul>
   </nav>
 
-  <section class="portfolio-section">
-    <div class="portfolio-card">
-      <img src="project1.jpg" alt="Project 1" class="portfolio-img" />
-      <div class="portfolio-content">
-        <h3 class="portfolio-title">Personal Website</h3>
-        <p class="portfolio-desc">A modern responsive personal website built using HTML, CSS, and hosted with GitHub Pages.</p>
-      </div>
+  <div class="container">
+    <h2>To-Do List Pekerjaan</h2>
+    <div class="todo-input">
+      <input type="text" id="taskInput" placeholder="Tulis tugas di sini..." />
+      <button onclick="addTask()">Add</button>
     </div>
-
-    <div class="portfolio-card">
-      <img src="project2.jpg" alt="Project 2" class="portfolio-img" />
-      <div class="portfolio-content">
-        <h3 class="portfolio-title">Notepad Project</h3>
-        <p class="portfolio-desc">An interactive notepad tool with real-time post & comment features styled like a document editor.</p>
-      </div>
-    </div>
-  </section>
+    <ul class="todo-list" id="todoList"></ul>
+  </div>
 
   <footer>
     &copy; 2025 Khamim Maezun
   </footer>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById("nav-menu");
-      menu.classList.toggle("active");
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const taskText = input.value.trim();
+      if (taskText === "") return;
+
+      const li = document.createElement("li");
+
+      const span = document.createElement("span");
+      span.textContent = taskText;
+      li.appendChild(span);
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      const doneBtn = document.createElement("button");
+      doneBtn.innerHTML = "✔️";
+      doneBtn.onclick = () => li.classList.toggle("done");
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.innerHTML = "🗑️";
+      deleteBtn.onclick = () => li.remove();
+
+      actions.appendChild(doneBtn);
+      actions.appendChild(deleteBtn);
+      li.appendChild(actions);
+
+      document.getElementById("todoList").appendChild(li);
+      input.value = "";
     }
   </script>
+
 </body>
 </html>
