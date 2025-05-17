@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hobby - Khamim Maezun</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
@@ -13,146 +13,122 @@
       font-family: 'Inter', sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      background-color: #ffffff:
-      color: #111111;
-      line-height: 1.6;
-      min-height: 100vh;
+      background-color: #ffffff;
+      color: #333333;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
 
     nav {
-      position: sticky;
-      top: 0;
-      background-color: #0d0d0d;
-      z-index: 1000;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav h1 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
     }
 
     .menu-toggle {
       display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: #fff;
-      margin-bottom: 5px;
-      border-radius: 5px;
     }
 
     nav ul {
       display: flex;
-      gap: 2rem;
       list-style: none;
+      gap: 1.5rem;
     }
 
     nav ul li a {
-      color: #aaa;
       text-decoration: none;
-      transition: color 0.3s;
+      color: #555;
       font-size: 1rem;
+      transition: color 0.2s ease;
     }
 
     nav ul li a:hover {
-      color: #fff;
+      color: #000;
     }
 
     .hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
       padding: 4rem 2rem;
-      animation: fadeIn 1.2s ease-out;
-      gap: 2rem;
+      flex: 1;
     }
 
     .hero img {
-      width: 100px;
+      width: 200px;
       height: auto;
       object-fit: contain;
-      background: none;
-    }
-
-    .hero-text {
-      max-width: 600px;
+      margin-bottom: 2rem;
     }
 
     .hero-text h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       font-weight: 700;
-      color: #f1f1f1;
     }
 
     .hero-text p {
-      color: #bbb;
+      max-width: 600px;
+      margin: 0 auto;
       font-size: 1.1rem;
-      line-height: 1.7;
+      color: #555;
+      line-height: 1.6;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      color: #666;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #222;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      color: #999;
+      border-top: 1px solid #eee;
     }
 
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
       nav ul {
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: #0d0d0d;
         flex-direction: column;
-        width: 200px;
-        border: 1px solid #333;
-        display: none;
-        padding: 1rem;
         gap: 1rem;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        display: none;
       }
 
       nav ul.active {
         display: flex;
       }
+
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        height: 3px;
+        width: 25px;
+        background: #333;
+        margin-bottom: 4px;
+        border-radius: 5px;
+      }
     }
   </style>
 </head>
 <body>
+
   <nav>
     <h1>Khamim Maezun</h1>
     <div class="menu-toggle" id="menu-toggle">
@@ -172,9 +148,7 @@
     <img src="jmlayu.png" alt="jmlayu" />
     <div class="hero-text">
       <h2>Running</h2>
-      <p>
-        Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself.
-      </p>
+      <p>Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself.</p>
     </div>
   </div>
 
