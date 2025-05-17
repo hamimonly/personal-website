@@ -85,6 +85,14 @@
       gap: 2rem;
     }
 
+    .hero img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    }
+
     .hero-text {
       max-width: 600px;
     }
@@ -143,19 +151,6 @@
         display: flex;
       }
     }
-
-    .fade-out {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s ease;
-}
-
-.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.4s ease;
-}
-
   </style>
 </head>
 <body>
@@ -174,24 +169,14 @@
     </ul>
   </nav>
 
-  <div class="hero" id="hobby-slider">
-    <img
-      id="hobby-img"
-      src="mlayu.png"
-      alt="Running"
-      style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 20px rgba(255,255,255,0.05); transition: opacity 0.5s ease;"
-    />
+  <div class="hero">
+    <img src="mlayu.png" alt="Running" />
     <div class="hero-text">
-      <h2 id="hobby-title">Running</h2>
-      <p id="hobby-desc">
+      <h2>Running</h2>
+      <p>
         Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself.
       </p>
     </div>
-    <button id="next-hobby" style="margin-top: 2rem; background: none; border: none; cursor: pointer;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="#ffffff">
-        <path d="M10 17l5-5-5-5v10z"/>
-      </svg>
-    </button>
   </div>
 
   <footer>
@@ -203,69 +188,6 @@
     const menu = document.getElementById('menu');
     menuToggle.addEventListener('click', () => {
       menu.classList.toggle('active');
-    });
-  </script>
-
-  <script>
-    const hobbies = [
-      {
-        title: "Running",
-        desc: "Running is not just a sport for me; it's a way of life. It teaches persistence, builds endurance, and offers a profound connection to nature and oneself.",
-        img: "mlayu.png"
-      },
-      {
-        title: "Photography",
-        desc: "Capturing moments through the lens allows me to express creativity, see beauty in the ordinary, and freeze time in a frame.",
-        img: "photography.png"
-      },
-      {
-        title: "Reading",
-        desc: "Reading opens doors to new worlds, expands knowledge, and brings peace. It's my way of learning and escaping at the same time.",
-        img: "reading.png"
-      }
-    ];
-
-    let index = 0;
-    const imgEl = document.getElementById("hobby-img");
-    const titleEl = document.getElementById("hobby-title");
-    const descEl = document.getElementById("hobby-desc");
-
-    document.getElementById("next-hobby").addEventListener("click", () => {
-      index = (index + 1) % hobbies.length;
-
-// Tambahkan class fade-out
-imgEl.classList.add("fade-out");
-titleEl.classList.add("fade-out");
-descEl.classList.add("fade-out");
-
-setTimeout(() => {
-  // Ganti konten
-  imgEl.src = hobbies[index].img;
-  imgEl.alt = hobbies[index].title;
-  titleEl.textContent = hobbies[index].title;
-  descEl.textContent = hobbies[index].desc;
-
-  // Ganti ke fade-in
-  imgEl.classList.remove("fade-out");
-  titleEl.classList.remove("fade-out");
-  descEl.classList.remove("fade-out");
-
-  imgEl.classList.add("fade-in");
-  titleEl.classList.add("fade-in");
-  descEl.classList.add("fade-in");
-
-  // Hapus fade-in setelah selesai animasi agar bisa diulang
-  setTimeout(() => {
-    imgEl.classList.remove("fade-in");
-    titleEl.classList.remove("fade-in");
-    descEl.classList.remove("fade-in");
-  }, 400);
-}, 400);
-
-
-
-
-      
     });
   </script>
 </body>
