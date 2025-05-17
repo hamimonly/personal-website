@@ -86,11 +86,11 @@
     }
 
     .hero img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255,255,255,0.05);
+      width: 240px;
+      height: auto;
+      object-fit: contain;
+      animation: float 2.5s ease-in-out infinite;
+      background: none;
     }
 
     .hero-text {
@@ -127,6 +127,12 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
@@ -170,7 +176,7 @@
   </nav>
 
   <div class="hero">
-    <img src="mlayu.png" alt="Running" />
+    <img src="mlayu.png" alt="mlayu" />
     <div class="hero-text">
       <h2>Running</h2>
       <p>
